@@ -1,0 +1,48 @@
+createdAt: "2018-03-28T13:25:56.491Z"
+updatedAt: "2018-04-03T10:41:06.822Z"
+type: "MARKDOWN_NOTE"
+folder: "df30ccd0eaefb335e5a1"
+title: "Additional notes for Chapter 3 Transforming arrays"
+content: '''
+  ### Additional notes for Chapter 3 Transforming arrays 
+  Suppose we want to remove all negative elements from an array buffer of integers.
+  A traditional sequential solution might traverse the array buffer and remove
+  unwanted elements as they are encountered.
+  ```Scala
+  var n = a.length
+  var i = 0
+  while (i < n) {
+   if (a(i) >= 0) i += 1
+   else { a.remove(i); n -= 1 }
+  }
+  ```
+  That’s a bit fussy—you have to remember not to increment i when you remove
+  the element, and to decrement n instead. It is also not efficient to remove elements
+  from the middle of the array buffer. This loop unnecessarily moves elements that
+  will later be removed.
+  In Scala, the obvious solution is to use a for/yield loop and keep all non-negative
+  elements:
+  ```Scala
+  val result = for (elem <- a if elem >= 0) yield elem
+  ```
+  The result is a new array buffer. Suppose that we want to modify the original
+  array buffer instead, removing the unwanted elements. Then we can collect their
+  positions:
+  
+  ```Scala
+  val positionsToRemove = for (i <- a.indices if a(i) < 0) yield i
+  //Now remove the elements at those positions, starting from the back:
+  for (i <- positionsToRemove.reverse) a.remove(i)
+  ```
+  Or better, remember the positions to keep, copy them over, and then shorten the
+  buffer:
+  
+  ```Scala
+  val positionsToKeep = for (i <- a.indices if a(i) >= 0) yield i
+  for (j <- positionsToKeep.indices) a(j) = a(positionsToKeep(j))
+  a.trimEnd(a.length - positionsToKeep.length)
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

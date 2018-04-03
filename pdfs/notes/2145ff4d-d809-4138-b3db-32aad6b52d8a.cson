@@ -1,0 +1,61 @@
+createdAt: "2018-04-03T10:18:11.974Z"
+updatedAt: "2018-04-03T10:40:27.732Z"
+type: "MARKDOWN_NOTE"
+folder: "df30ccd0eaefb335e5a1"
+title: "Maps and Tuples"
+content: '''
+  ### Chapter 4
+  # Maps and Tuples
+  
+  In scala, map is a `collection of pairs` You can construct a map as
+  
+  ```Scala
+  val scores = Map("Alice" -> 10, "Bob" -> 3, "Cindy" -> 8) 
+  //same as:
+  val scores = Map(("Alice", 10), ("Bob", 3), ("Cindy", 8))
+  ```
+  This constructs an immutable Map[String, Int] whose contents can’t be changed.
+  You can also construct `mutable` and `blank` maps. In case of a blank map, type parameters need to be supplied
+  
+  ```Scala
+  val scores = scala.collection.mutable.Map("Alice" -> 10, "Bob" -> 3, "Cindy" -> 8)
+  val scores = scala.collection.mutable.Map[String, Int]()
+  ```
+  
+  #### Accessing Map Values
+  you use the () notation to look up key values. If the map doesn’t contain a value for the requested key, an exception is thrown. To check whether there is a key with the given value, call the `contains` method. A better shortcut is `getOrElse` method
+  ```Scala
+  val bobsScore = if (scores.contains("Bob")) scores("Bob") else 0
+  val bobsScore = scores.getOrElse("Bob", 0)
+  ```
+  map.get(key) returns an `Option object` that is either Some(value for key) or None.
+  Given an immutable map,  you can turn it into a map with a *`fixed default value` for keys that are not present*, or a function to compute such values.
+  
+  ```Scala
+  val scores1 = scores.withDefaultValue(0)
+  val zeldasScore1 = scores1.get("Zelda")
+   // Yields 0 since "Zelda" is not present
+  val scores2 = scores.withDefault(_.length)
+  val zeldasScore2 = scores2.get("Zelda")
+   // Yields 5, applying the length function to the key that is not present
+  ```
+  #### Updating Map values
+  
+  ```Scala
+  ```
+  You might think that it is inefficient to keep constructing new maps, but that is
+  not the case. The old and new maps share most of their structure. (This is possible
+  because they are immutable.)
+  
+  ```Scala
+  ```
+  
+  ```Scala
+  ```
+  
+  ```Scala
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false
