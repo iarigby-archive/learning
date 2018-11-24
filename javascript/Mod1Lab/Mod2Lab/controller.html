@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
+</head>
+<body ng-controller="myController">
+    <h1>{{title}}</h1>
+    <a href='#' ng-click='renameTitle("Away")'>Click this to Change</a>
+    <pre>
+        {{name}}
+    </pre>
+    <div>
+        {{person.name}}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
