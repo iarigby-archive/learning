@@ -9,4 +9,10 @@ Modular programs consist of components that can be understood and reused indepen
 Pure function separates the logic of computation itself from "what to do with the result" and "how to obtain its input". It's a **black box**
 
 ### Variance
-in `trait List[+A]` the + in front of the type parameter A is a variance annotation that signals that A is a covariant or "positive" parameter of List. 
+in `trait List[+A]` the + in front of the type parameter A is a variance annotation that signals that A is a covariant or "positive" parameter of List. For all types X and Y, if X is a subtype of Y, List[X] is a subtype of List[Y]
+
+### Variadic Functions
+accepts zero or more arguments
+
+### Data sharing
+Since lists are immutable, we don't need to actually copy its contents when adding or removing elements. We just reuse it. There is no actual copying or deleting done. 
