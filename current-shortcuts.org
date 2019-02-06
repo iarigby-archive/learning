@@ -1,0 +1,181 @@
+#+TODO: TODO UP-NEXT LEARNING SNOOZED | LEARNED DONE
+* Tasks
+** DONE mark my first task as complete usinc C-c C-t
+   CLOSED: [2018-12-16 Sun 23:29]
+** DONE add next TODO using M-shift-RET (org-insert-todo-heading)
+CLOSED: [2018-12-26 Wed 16:19]
+** TODO add this to git (probably not from this directory)
+*** DONE add subtask
+    CLOSED: [2018-12-17 Mon 11:43]
+** UP-NEXT configure global todos using [[https://emacs.stackexchange.com/questions/5560/wildcard-in-org-agenda-files][this thing]] (use with C-c a t)
+   SCHEDULED: <2018-12-12 Wed>
+** TODO learn how to unschedule a task I accidentally scheduled
+** DONE fix xfce screenshot error on save (#log). It was- guess what - because pictures was with lowercase p.
+   CLOSED: [2018-12-17 Mon 00:38]
+** TODO move setup to somewhere else
+* shortcuts
+** org mode-only shorcuts
+*** navigation
+**** LEARNED DONE TAB / S-TAB – (un)fold
+CLOSED: [2018-12-26 Wed 15:10]
+**** LEARNED DONE M-up/down move a headline up or down
+CLOSED: [2018-12-26 Wed 15:10]
+**** LEARNED DONE M-left/right – promote or demote a headline
+CLOSED: [2018-12-26 Wed 15:10]
+**** LEARNED M-RET – insert a new headline
+CLOSED: [2018-12-26 Wed 15:10]
+**** LEARNING C-RET - insert a new headline at the end of section 
+**** LEARNED S-left/right – cycle workflow
+CLOSED: [2018-12-26 Wed 15:11]
+*** links
+**** LEARNING C-c C-l insert link
+**** LEARNING C-c C-o open link
+*** uncategorized
+**** LEARNED C-u C-c . - insert timestamp
+CLOSED: [2018-12-26 Wed 15:11]
+**** LEARNING C-c C-c apply changes to the document configuration/insert tag
+*** document navigation:
+**** UP-NEXT C-c C-n     (org-next-visible-heading)
+    Next heading. 
+**** UP-NEXT C-c C-p     (org-previous-visible-heading)
+    Previous heading. 
+**** UP-NEXT C-c C-f     (org-forward-same-level)
+    Next heading same level. 
+**** UP-NEXT C-c C-b     (org-backward-same-level)
+    Previous heading same level. 
+**** UP-NEXT C-c C-u     (outline-up-heading)
+    Backward to higher level heading. 
+**** UP-NEXT C-c C-j     (org-goto)
+** emacs shortcuts
+*** help
+**** LEARNING command + ? displays possibilities (and describes what the command group does)
+**** LEARNING C-h + k : display what command does
+*** lisp
+**** DONE M-x (eval-buffer) to change settings (while on .emacs file)
+CLOSED: [2018-12-26 Wed 16:29]
+**** SNOOZED M-x (lisp-interaction-mode)  and then C-j to evaluate
+*** shell
+**** LEARNING M-x | - shell-command
+**** LEARNING M-x shell/term/eshell eg in eshell grep 
+*** files
+**** LEARNED C-x C-f open file   
+CLOSED: [2018-12-26 Wed 16:31]
+**** LEARNED C-x C-s – save file
+CLOSED: [2018-12-26 Wed 16:31]
+*** menus
+**** SNOOZED f10 open menu 
+**** SNOOZED navigating menu: C-b, C-f (left/right), C-p, and C-n (up/down)
+*** text manipulation
+**** LEARNED C-y paste text
+CLOSED: [2018-12-26 Wed 16:23]
+**** LEARNED C-x k RET kill buffer
+CLOSED: [2018-12-26 Wed 16:23]
+**** LEARNED C-_ or C-/ / C-g undo/redo + undo (undo further)
+CLOSED: [2018-12-26 Wed 16:27]
+*** buffers
+**** LEARNED C-x b RET or buffer name switch buffer
+CLOSED: [2018-12-26 Wed 16:32]
+**** LEARNED C-x C-b list buffers 
+CLOSED: [2018-12-26 Wed 16:32]
+**** SNOOZED C-x C-v find-alternate-file reload file in buffer
+*** windows
+**** M-x command: command shortcut
+**** LEARNING C-x o (other-window)
+**** LEARNING C-x 2/3 split-window-right/left
+**** LEARNING C-x 0 delete-window
+**** LEARNING C-x 1 delete-other-windows
+* setup
+*** install themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+M-x package-install monokai-theme
+M-x package-install cherry-blossom
+
+in .emacs
+(load-theme 'cherry-blossom t)
+
+**** TODO and also write down which one is used but maybe needs to be moved 
+
+*** configure cursor
+(setq-default cursor-type 'bar)
+(set-cursor-color "#54fffc")
+
+
+*** set up melpa
+https://melpa.org/#/getting-started
+
+
+*** installed packages:
+multiple cursors: https://github.com/magnars/multiple-cursors.el
+expand region: https://github.com/magnars/expand-region.el
+
+*** configuring org
+
+[[https://superuser.com/questions/299886/linewrap-in-org-mode-of-emacs][wrap text on org]]
+
+
+*** configurations
+**** org-mode
+***** capture
+- [ ] create default directory [[https://orgmode.org/manual/Setting-up-capture.html#Setting-up-capture][link]]
+#+BEGIN_SRC emacs-lisp
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+#+END_SRC
+***** org-indent and visual-line-mode
+#+BEGIN_SRC emacs-lisp
+(define-key org-mode-map "\M-q" 'visual-line-mode)
+(with-eval-after-load 'org       
+  (setq org-startup-indented t) ; Enable `org-indent-mode' by default
+  (add-hook 'org-mode-hook #'visual-line-mode))
+#+END_SRC
+
+** Wish list
+- include estimated time in scheduling
+could use for filtering in search
+
+find out if it's possible to create different workflows or sth
+find out a way to open manual here instead of googling every few seconds (plus would be 
+automatically toogle word wrap for org docs and make it so that they're not split mid word, like right now
+
+[[https://orgmode.org/manual/Creating-timestamps.html][use this]] to create outlines that would unify the day (notes taken, etc) 
+but still keep different things in different files
+
+that way there would be the top hierarchy in files and 
+
+*** tasks
+- have a percentage / time spent 
+*** sparse tree
+[[https://orgmode.org/manual/Sparse-trees.html][this]] set up for FIXMEs
+
+*** setup/
+omg [[https://orgmode.org/manual/Capture.html][this]] is all I ever wanted
+    padding on windows [[https://github.com/hlissner/doom-emacs/issues/567][link]]
+googling from here
+capture
+- [[https://www.reddit.com/r/emacs/comments/7zqc7b/share_your_org_capture_templates/][useful templates]]
+perspective
+[[https://www.gnu.org/software/emacs/manual/html_node/org/TODO-types.html][Todo types]]
+edit 
+
+
+*** create/find
+    see history of the line on git (probably right side)
+    create configuration file for window setup (including reload)
+    have a function to type in and add to notes (maybe small buffer window
+    and would be able to switch between different output location for the note)
+
+searching and navigating to note just like in a dir and it would be outputed to buffer
+
+
+*** learn
+write down documentation for window configuration with explanations
+
+*** expoting
+how to gather tags somehow
+*** setting up task management
+- if you have a lot of some tag in one doc, you would set up in heading and all sub headings would be automatically synced
+- before commiting, this should all be moved somewhere and the journal, etc should be personal
+
+front end for:
+bookmarks
+html (set up a progressive web app where the only thing service worker would do is get html page and store outgoing changes when offline)
