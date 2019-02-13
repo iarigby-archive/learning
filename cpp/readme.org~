@@ -1,0 +1,19 @@
+* questions
+** why was switch statement designed the way it was?
+inherited from c, which itself inherited from assembly. 
+
+https://softwareengineering.stackexchange.com/a/162590
+
+"The switch statement is basically an abstraction of a branch table, and a branch table also has an implicit fall-through and requires an additional jump instruction to avoid it."
+
+https://softwareengineering.stackexchange.com/a/162575
+
+"switch is not an alternative of if ... else statements in those languages. By using switch, we can match more than one condition at a time, which is highly appreciated in some cases." 
+
+
+But it seems like this appreciation isn't that common: https://stackoverflow.com/questions/252489/why-was-the-switch-statement-designed-to-need-a-break
+"Case fall through is so widely recognized as a defect that there's even a special comment convention, shown above, that tells lint "this is really one of those 3% of cases where fall through was desired.""
+ 
+interesting use of switch (and generally interesting piece of code): 
+https://www.wikipedia.com/en/Duff%27s_device
+
