@@ -1,2 +1,2 @@
-function:foo2
-called_from_lib:iostream
+fun:foo
+fun:foo2

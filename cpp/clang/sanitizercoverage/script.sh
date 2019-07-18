@@ -1,3 +1,10 @@
-clang++ -g -fsanitize-blacklist=blacklist -fsanitize-coverage=trace-pc-guard $1-example.cc -c
-clang++ $1-cb.cc $1-example.o -fsanitize=address
+# -fsanitize-blacklist=blacklist
+if [ -z "$1" ]
+then
+	filename="trace-pc-guard"
+else
+     filename=$1
+fi
+clang++ -g  -fsanitize-coverage=trace-pc-guard $filename-example.cc -c
+clang++ $filename-cb.cc $filename-example.o -fsanitize=address -fsanitize-blacklist=blacklist
 ASAN_OPTIONS=strip_path_prefix=`pwd`/ ./a.out $2 $3
